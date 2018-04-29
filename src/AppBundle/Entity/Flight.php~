@@ -224,28 +224,5 @@ class Flight
     {
         return $this->wasDone;
     }
-
-    /**
-     * Set departure
-     *
-     * @param \AppBundle\entity\Site $departure
-     *
-     * @return Flight
-     */
-    public function setDeparture(\AppBundle\entity\Site $departure)
-    {
-        $this->departure = $departure;
-
-        return $this;
-    }
-
-    /**
-     * Get departure
-     *
-     * @return \AppBundle\entity\Site
-     */
-    public function getDeparture()
-    {
-        return $this->departure;
-    }
 }
+
