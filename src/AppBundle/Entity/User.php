@@ -12,6 +12,27 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class User
 {
+
+    public function __toString()
+    {
+        return $this->firstName . " " .$this->lastName;
+    }
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Flight", mappedBy="pilot")
+     */
+    private $pilots;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Reservation", mappedBy="passenger")
+     */
+    private $passengers;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Review", mappedBy="reviewAuthor")
+     */
+    private $reviewAuthors;
+
     /**
      * @var int
      *
@@ -248,5 +269,113 @@ class User
     {
         return $this->isAcertifiedPilot;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->pilots = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add pilot
+     *
+     * @param \AppBundle\Entity\Flight $pilot
+     *
+     * @return User
+     */
+    public function addPilot(\AppBundle\Entity\Flight $pilot)
+    {
+        $this->pilots[] = $pilot;
+
+        return $this;
+    }
+
+    /**
+     * Remove pilot
+     *
+     * @param \AppBundle\Entity\Flight $pilot
+     */
+    public function removePilot(\AppBundle\Entity\Flight $pilot)
+    {
+        $this->pilots->removeElement($pilot);
+    }
+
+    /**
+     * Get pilots
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPilots()
+    {
+        return $this->pilots;
+    }
+
+    /**
+     * Add passenger
+     *
+     * @param \AppBundle\Entity\Reservation $passenger
+     *
+     * @return User
+     */
+    public function addPassenger(\AppBundle\Entity\Reservation $passenger)
+    {
+        $this->passengers[] = $passenger;
+
+        return $this;
+    }
+
+    /**
+     * Remove passenger
+     *
+     * @param \AppBundle\Entity\Reservation $passenger
+     */
+    public function removePassenger(\AppBundle\Entity\Reservation $passenger)
+    {
+        $this->passengers->removeElement($passenger);
+    }
+
+    /**
+     * Get passengers
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPassengers()
+    {
+        return $this->passengers;
+    }
+
+    /**
+     * Add reviewAuthor
+     *
+     * @param \AppBundle\Entity\Review $reviewAuthor
+     *
+     * @return User
+     */
+    public function addReviewAuthor(\AppBundle\Entity\Review $reviewAuthor)
+    {
+        $this->reviewAuthors[] = $reviewAuthor;
+
+        return $this;
+    }
+
+    /**
+     * Remove reviewAuthor
+     *
+     * @param \AppBundle\Entity\Review $reviewAuthor
+     */
+    public function removeReviewAuthor(\AppBundle\Entity\Review $reviewAuthor)
+    {
+        $this->reviewAuthors->removeElement($reviewAuthor);
+    }
+
+    /**
+     * Get reviewAuthors
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getReviewAuthors()
+    {
+        return $this->reviewAuthors;
+    }
+}

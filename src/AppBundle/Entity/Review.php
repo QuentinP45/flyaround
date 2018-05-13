@@ -12,6 +12,24 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Review
 {
+
+    public function __toString()
+    {
+        return 'Review : ' . $this->id;
+    }
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\entity\User")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $userRelated;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\entity\User", inversedBy="reviewAuthors")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $reviewAuthor;
+
     /**
      * @var int
      *
@@ -124,5 +142,52 @@ class Review
     {
         return $this->note;
     }
-}
 
+    /**
+     * Set userRelated
+     *
+     * @param \AppBundle\entity\User $userRelated
+     *
+     * @return Review
+     */
+    public function setUserRelated(\AppBundle\entity\User $userRelated)
+    {
+        $this->userRelated = $userRelated;
+
+        return $this;
+    }
+
+    /**
+     * Get userRelated
+     *
+     * @return \AppBundle\entity\User
+     */
+    public function getUserRelated()
+    {
+        return $this->userRelated;
+    }
+
+    /**
+     * Set reviewAuthor
+     *
+     * @param \AppBundle\entity\User $reviewAuthor
+     *
+     * @return Review
+     */
+    public function setReviewAuthor(\AppBundle\entity\User $reviewAuthor)
+    {
+        $this->reviewAuthor = $reviewAuthor;
+
+        return $this;
+    }
+
+    /**
+     * Get reviewAuthor
+     *
+     * @return \AppBundle\entity\User
+     */
+    public function getReviewAuthor()
+    {
+        return $this->reviewAuthor;
+    }
+}
