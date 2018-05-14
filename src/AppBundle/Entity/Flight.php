@@ -18,7 +18,7 @@ class Flight
     }
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\entity\Site", inversedBy="departures")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Site", inversedBy="departures")
      * @ORM\JoinColumn(nullable=false)
      */
     private $departure;

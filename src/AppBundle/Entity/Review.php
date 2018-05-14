@@ -19,13 +19,13 @@ class Review
     }
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\entity\User")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      * @ORM\JoinColumn(nullable=false)
      */
     private $userRelated;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\entity\User", inversedBy="reviewAuthors")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="reviewAuthors")
      * @ORM\JoinColumn(nullable=false)
      */
     private $reviewAuthor;
