@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    {% for review in reviews %}
+        {{ review.id }}
+        {{ review.userRated }}
+        {{ review.reviewAuthor }}
+        {{ review.text }}
+        {{ review.publicationDate }}
+        {{ review.note }}
+    {% endfor %}
+{% endblock %}
