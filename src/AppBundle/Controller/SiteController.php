@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Site controller.
  *
- * @Route("site")
+ * @Route("user/site")
  */
 class SiteController extends Controller
 {

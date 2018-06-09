@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Flight controller.
  *
- * @Route("flight")
+ * @Route("user/flight")
  */
 class FlightController extends Controller
 {

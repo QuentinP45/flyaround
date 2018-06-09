@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Reservation controller.
  *
- * @Route("reservation")
+ * @Route("user/reservation")
  */
 class ReservationController extends Controller
 {

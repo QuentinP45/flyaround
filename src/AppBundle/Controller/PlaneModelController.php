@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Planemodel controller.
  *
- * @Route("planemodel")
+ * @Route("user/planemodel")
  */
 class PlaneModelController extends Controller
 {

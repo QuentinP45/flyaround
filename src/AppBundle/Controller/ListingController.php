@@ -13,7 +13,7 @@ use AppBundle\Entity\Reservation;
 
 /**
  * Class ListingController
- * @route("listing")
+ * @route("user/listing")
  *
  */
 class ListingController extends Controller

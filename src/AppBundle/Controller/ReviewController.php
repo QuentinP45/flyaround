@@ -19,7 +19,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Class ReviewController
  * @package AppBundle\Controller
- * @Route("review")
+ * @Route("user/review")
  * @Method("GET")
  */
 class ReviewController extends Controller
