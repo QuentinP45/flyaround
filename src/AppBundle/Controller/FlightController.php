@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Flight;
+use AppBundle\Entity\PlaneModel;
 use AppBundle\Service\FlightInfo;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -73,7 +74,9 @@ class FlightController extends Controller
             $flight->getArrival()->getLongitude(),
             $flight->getArrival()->getLatitude()
         );
-        $time = $flightInfo->getTime($distance);
+
+        $vitesse = $flight->getPlane()->getCruiseSpeed();
+        $time = $flightInfo->getTime($distance, $vitesse);
 
         return $this->render('flight/show.html.twig', array(
             'flight' => $flight,

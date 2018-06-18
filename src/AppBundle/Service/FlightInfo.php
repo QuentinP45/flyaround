@@ -52,8 +52,8 @@ class FlightInfo
         return $d;
     }
 
-    public function getTime($d)
+    public function getTime($d, $v)
     {
-        return $t = $d / 900;
+        return $t = $d / $v;
     }
 }
